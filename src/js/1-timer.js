@@ -102,7 +102,7 @@ function convertMs(ms) {
   return { days, hours, minutes, seconds };
 }
 
-//Styling the timer correctly
+
 function addLeadingZero(value) {
   return value.toString().padStart(2, 0);
 }
