@@ -1,6 +1,6 @@
 //Imports
-import iziToast from 'izitoast';
-import 'izitoast/dist/css/iziToast.min.css';
+import iziToast from "izitoast";
+import "izitoast/dist/css/iziToast.min.css";
 
 //Declarations
 const formEl = document.querySelector('.form');
