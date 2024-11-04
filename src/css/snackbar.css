@@ -1,0 +1,111 @@
+.form {}
+
+body {
+    font-family: "Montserrat", sans-serif;
+}
+
+.label-form {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #2e2f42;
+}
+
+input[type='number'] {
+    border-radius: 4px;
+    width: 350px;
+    height: 40px;
+    border: 1px solid #808080;
+    padding-left: 10px;
+}
+
+input[type='number']:focus {
+    border: 1px solid #4e75ff;
+    outline: none;
+}
+
+input[type='radio'] {
+    appearance: none;
+    border: 1px solid #757575;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    background-color: transparent;
+}
+
+input[type='radio']:checked {
+    background-color: #4e75ff;
+    border-color: #4e75ff;
+}
+
+input[type='radio']:focus {
+    outline: 2px solid #4e75ff;
+    outline-offset: 2px;
+}
+
+.btn-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+    border-radius: 8px;
+    padding: 8px 16px;
+    width: 360px;
+    height: 40px;
+    background: #4e75ff;
+    border: none;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #fff;
+}
+
+.btn-form:disabled {
+    background: #cfcfcf;
+    color: #989898;
+}
+
+.btn-form:hover {
+    background: #6c8cff;
+}
+
+label {
+    display: flex;
+    gap: 8px;
+}
+
+fieldset {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    width: 340px;
+    border-radius: 4px;
+    stroke-width: 1px;
+    stroke: #808080;
+    gap: 48px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    color: #2e2f42;
+    border: 1px solid #808080;
+    margin-bottom: 24px;
+}
+
+fieldset:hover {
+    border-radius: 4px;
+    stroke-width: 1px;
+    stroke: #000;
+}

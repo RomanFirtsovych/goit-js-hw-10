@@ -1,51 +1,48 @@
-//Imports
-import iziToast from "izitoast";
+import izitoast from "izitoast";
 import "izitoast/dist/css/iziToast.min.css";
 
-//Declarations
-const formEl = document.querySelector('.form');
+const form = document.querySelector(".form");
+const delay = document.querySelector("[name='delay']");
+const button = document.querySelector(".form button")
+form.addEventListener("submit", handleClick)
 
-//Form submit
-formEl.addEventListener('submit', e => {
-  e.preventDefault();
-  const delay = e.target.elements.delay.value;
+function handleClick(event) {
+    event.preventDefault()
 
-  const formData = new FormData(formEl);
-  const state = formData.get('state');
+    const delayValue = +delay.value;
+    const stateValue = document.querySelector("[name='state']:checked").value;
 
-  //Promise creation
-  const promise = new Promise((res, rej) => {
-    return setTimeout(() => {
-      if (state === 'fulfilled') {
-        res(`✅ Fulfilled promise in ${delay}ms`);
-      } else {
-        rej(`❌ Rejected promise in ${delay}ms`);
-      }
-    }, delay);
-  });
-
-  //Promise handling
-  promise
-    .then(value => {
-      iziToast.show({
-        message: value,
-        messageColor: 'black',
-        messageSize: '14px',
-        position: 'topRight',
-        timeout: 4000,
-        color: 'green',
-        closeOnClick: true,
-      });
-    })
-    .catch(value => {
-      iziToast.show({
-        message: value,
-        messageColor: 'black',
-        messageSize: '14px',
-        position: 'topRight',
-        timeout: 4000,
-        color: 'red',
-        closeOnClick: true,
-      });
+    const promise = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            stateValue === "fulfilled" ? resolve(delayValue) : reject(delayValue);
+        }, delayValue);
     });
-});
+
+    button.disabled = true;
+
+    promise
+        .then((delayValue) => {
+            izitoast.success({
+                title: 'Success',
+                message: ` Fulfilled promise in ${delayValue}ms`,
+                position: 'topCenter',
+                backgroundColor: '#59a10d',
+                messageColor: '#fff',
+                titleColor: '#fff'
+            })
+        })
+        .catch((delayValue) => {
+            izitoast.error({
+                title: 'Error',
+                message: ` Rejected promise in ${delayValue}ms`,
+                position: 'topCenter',
+                backgroundColor: '#ef4040',
+                messageColor: '#fff',
+                titleColor: '#fff'
+            })
+        })
+        .finally(() => {
+            button.disabled = false;
+        });
+}
+

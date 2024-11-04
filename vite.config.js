@@ -10,13 +10,9 @@ export default defineConfig(({ command }) => {
       [command === 'serve' ? 'global' : '_global']: {},
     },
     root: 'src',
-    optimizeDeps: {
-      include: ['flatpickr', 'izitoast'],
-    },
     build: {
       sourcemap: true,
       rollupOptions: {
-        external: ['flatpickr', 'izitoast'],  // об'єднано в один масив
         input: glob.sync('./src/*.html'),
         output: {
           manualChunks(id) {
